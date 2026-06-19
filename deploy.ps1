@@ -15,4 +15,4 @@ $KaliUrl = "https://cdimage.kali.org/kali-2026.1/kali-linux-2026.1-virtualbox-am
 Invoke-WebRequest -Uri $KaliUrl -OutFile $DownloadPath -UserAgent "Mozilla/5.0"
 
 Write-Host "[✓] PIPELINE STAGE 1 COMPLETED SUCCESSFUL" -ForegroundColor Green
-Write-Host "[*] File stored at: C:\pOS_Infrastructure" -ForegroundColor White
+Write-Host "[*] File stored at: C:\pOS_Infrastructure" -ForegroundColor Green
