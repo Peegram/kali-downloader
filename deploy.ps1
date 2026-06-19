@@ -13,10 +13,10 @@ Write-Host ""
 # 1. Environment Infrastructure Setup
 Write-Host "[+] Stage 1: Constructing clean architecture workspace..." -ForegroundColor Yellow
 if (!(Test-Path -Path $TargetDir)) {
-New-Item -Path $TargetDir -ItemType Directory | Out-Null
-Write-Host "[✓] Directory created at $TargetDir" -ForegroundColor Green
+    New-Item -Path $TargetDir -ItemType Directory | Out-Null
+    Write-Host "[✓] Directory created at $TargetDir" -ForegroundColor Green
 } else {
-Write-Host "[✓] Directory already exists. Proceeding..." -ForegroundColor Green
+    Write-Host "[✓] Directory already exists. Proceeding..." -ForegroundColor Green
 }
 
 # 2. Hypervisor Verification Engine
@@ -25,12 +25,12 @@ Write-Host "[+] Stage 2: Scanning host system for VirtualBox engine..." -Foregro
 $VBoxPath = "C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
 
 if (Test-Path -Path $VBoxPath) {
-Write-Host "[✓] VirtualBox detected successfully at default path." -ForegroundColor Green
+    Write-Host "[✓] VirtualBox detected successfully at default path." -ForegroundColor Green
 } else {
-Write-Host "[!] WARNING: VirtualBox execution core not found." -ForegroundColor Red
-Write-Host " Please ensure Oracle VirtualBox is installed on your Windows OS." -ForegroundColor DarkGray
-Write-Host " Aborting pipeline injection to protect system integrity." -ForegroundColor Red
-Exit
+    Write-Host "[!] WARNING: VirtualBox execution core not found." -ForegroundColor Red
+    Write-Host " Please ensure Oracle VirtualBox is installed on your Windows OS." -ForegroundColor DarkGray
+    Write-Host " Aborting pipeline injection to protect system integrity." -ForegroundColor Red
+    Exit
 }
 
 # 3. Secure Streaming Engine
@@ -42,12 +42,13 @@ Write-Host " [!] File size is 3.6 GB. Maintain network connection stability..." 
 $KaliUrl = "https://cdimage.kali.org/kali-2026.1/kali-linux-2026.1-virtualbox-amd64.7z"
 
 try {
-Invoke-WebRequest -Uri $KaliUrl -OutFile $DownloadPath -UserAgent "Mozilla/5.0"
-Write-Host "[✓] Download complete. Archive stored securely at: $DownloadPath" -ForegroundColor Green
-} catch {
-Write-Host "[-] CRITICAL ERROR: Network pipe broken during download." -ForegroundColor Red
-Write-Host " Error Details: $_" -ForegroundColor DarkGray
-Exit
+    Invoke-WebRequest -Uri $KaliUrl -OutFile $DownloadPath -UserAgent "Mozilla/5.0"
+    Write-Host "[✓] Download complete. Archive stored securely at: $DownloadPath" -ForegroundColor Green
+}
+catch {
+    Write-Host "[-] CRITICAL ERROR: Network pipe broken during download." -ForegroundColor Red
+    Write-Host " Error Details: $_" -ForegroundColor DarkGray
+    Exit
 }
 
 # 4. Final Deployment Execution Instructions
